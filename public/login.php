@@ -2,10 +2,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>绑定教务系统帐号</title>
-<link rel="stylesheet" href="./static/css/jquery.mobile-1.3.1.min.css">
+<link rel="stylesheet" href="/static/css/jquery.mobile-1.3.1.min.css">
 </head>
 <body class="ui-mobile-viewport ui-overlay-c" ryt12199="1" style="zoom: 1;">
-<div data-role="page" data-url="/api/bangding.php?id=ofnHDt453nDzs7KnP9Fau50x4IK4" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 343px;">
+<div data-role="page" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 343px;">
 	<div class="content">
 		<div data-role="content" class="ui-content" role="main">
 			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')"><div class="ui-controlgroup-controls">
@@ -26,13 +26,13 @@
 <div class="openid" id = <?php echo $_GET['openid'];?>>
 </div>
 
-<script src="./static/js/jquery-1.9.0.min.js"></script>
-<script src="./static/js/jquery.mobile-1.3.1.min.js"></script> 
+<script src="/static/js/jquery-1.9.0.min.js"></script>
+<script src="/static/js/jquery.mobile-1.3.1.min.js"></script> 
 <script>
 $('#bind-btn').on('click',function(){
 	$.mobile.showPageLoadingMsg(); 
 	$.ajax({
-        url:'./checklogin.php',
+        url:'/checklogin.php',
 		type:'POST',
 		data:{username:$('#stuid').val(),password:$('#jwpwd').val(),openid:$('.openid').attr('id')},
 		dataType:'json',

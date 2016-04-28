@@ -1,7 +1,7 @@
 <?php
 
 //error_reporting(0);
-include_once ('../lib/function.php');
+include_once ('../src/function.php');
 
 /**
  * 微信公众平台 PHP SDK 示例文件

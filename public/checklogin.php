@@ -1,5 +1,5 @@
 <?php
-include_once 'lib/function.php';
+include_once 'src/function.php';
 include_once 'config/config.php';
 $openid = $_REQUEST['openid'];
 $username = $_REQUEST['username'];
