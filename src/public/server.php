@@ -1,7 +1,7 @@
 <?php
 
 //error_reporting(0);
-include_once ('../src/function.php');
+include_once ('../function.php');
 
 /**
  * 微信公众平台 PHP SDK 示例文件
@@ -9,7 +9,7 @@ include_once ('../src/function.php');
  * @author NetPuter <netputer@gmail.com>
  */
 
-require ('../src/Wechat.php');
+require ('../Wechat.php');
 
 /**
  * 微信公众平台演示类

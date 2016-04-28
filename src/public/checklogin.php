@@ -1,6 +1,6 @@
 <?php
-include_once 'src/function.php';
-include_once 'config/config.php';
+include_once '../function.php';
+include_once '../config/config.php';
 $openid = $_REQUEST['openid'];
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
