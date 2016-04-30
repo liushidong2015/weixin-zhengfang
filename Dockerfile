@@ -18,6 +18,8 @@ RUN yum install -y nginx
 RUN rm -fr /etc/nginx/conf.d/*
 COPY docker/etc/nginx/conf.d/ /etc/nginx/conf.d/
 
+RUN echo date.timezone = Asia/Chongqing >> /etc/php.ini
+
 
 RUN rm -fr /var/cache/yum
 RUN yum clean all
