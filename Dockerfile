@@ -10,7 +10,7 @@ RUN yum makecache
 RUN yum -y update
 
 RUN yum install -y php-cli php-common php-fpm php-devel
-RUN yum install -y php-pdo php-mysql
+RUN yum install -y php-pdo php-mysql php-xml php-intl php-mbstring php-mcrypt php-opcache
 
 #RUN yum install -y mysql-server
 
@@ -18,8 +18,7 @@ RUN yum install -y nginx
 RUN rm -fr /etc/nginx/conf.d/*
 COPY docker/etc/nginx/conf.d/ /etc/nginx/conf.d/
 
-RUN echo date.timezone = Asia/Chongqing >> /etc/php.ini
-
+RUN echo date.timezone = Asia/Shanghai >> /etc/php.ini
 
 RUN rm -fr /var/cache/yum
 RUN yum clean all
