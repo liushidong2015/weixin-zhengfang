@@ -78,7 +78,7 @@ class MyWechat extends Wechat
         if ($content == '成绩') {
             $checkbind = checkBind($openid);
             if ($checkbind['status'] == 0) {
-                $url = 'http://guoerwx.sinaapp.com/login.php?openid=' . $openid;
+                $url = getLoginUrl($openid);
                 $this->responseText('请先绑定学号' . "\n" . '<a href=' . "\"" . $url . "\"" . '>点击绑定学号</a>');
                 return;
             } else if ($checkbind['status'] == 1) {
@@ -95,7 +95,7 @@ class MyWechat extends Wechat
         if ($content == '考试安排') {
             $checkbind = checkBind($openid);
             if ($checkbind['status'] == 0) {
-                $url = 'http://guoerwx.sinaapp.com/login.php?openid=' . $openid;
+                $url = getLoginUrl($openid);
                 $this->responseText('请先绑定学号' . "\n" . '<a href=' . "\"" . $url . "\"" . '>点击绑定学号</a>');
                 return;
             } else if ($checkbind['status'] == 1) {
@@ -125,7 +125,7 @@ class MyWechat extends Wechat
         if (mb_substr($content,0,2,'utf-8') == '课表') {
             $checkbind = checkBind($openid);
             if ($checkbind['status'] == 0) {
-                $url = 'http://guoerwx.sinaapp.com/login.php?openid=' . $openid;
+                $url = getLoginUrl($openid);
                 $this->responseText('请先绑定学号' . "\n" . '<a href=' . "\"" . $url . "\"" . '>点击绑定学号</a>');
                 return;
             } else if ($checkbind['status'] == 1) {

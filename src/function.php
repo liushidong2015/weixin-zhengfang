@@ -1,8 +1,12 @@
 <?php
 include_once 'simple_html_dom.php';
 include_once 'config/config.php';
-function library($content) {
+function library($content) 
+{
     $key = mb_substr($content, 3, 1000, 'utf-8');
+    if (empty($key)) {
+        return '请输入\"图书馆书名\"';
+    }
     $key = urlencode($key);
     $url = "http://210.34.212.78/NTRdrBookRetr.aspx?strKeyValue=" . $key . "&strType=text&strSortType=&strpageNum=8&strSort=desc";
     $html = file_get_html($url);
@@ -64,7 +68,8 @@ function library($content) {
 }
 
 //检查是否绑定学号
-function checkBind($openid) {
+function checkBind($openid)
+{
     global $config;
     $con=mysqli_connect($config['mysql_host'],$config['mysql_user'],$config['mysql_pass'],$config['mysql_db']);
     if($con){
@@ -85,7 +90,8 @@ function checkBind($openid) {
 }
 
 //解绑学号
-function unBind($openid) {
+function unBind($openid) 
+{
     global $config;
     $con=mysqli_connect($config['mysql_host'],$config['mysql_user'],$config['mysql_pass'],$config['mysql_db']);
     if($con){
@@ -104,7 +110,8 @@ function unBind($openid) {
 }
 
 //验证学号密码
-function checkPassword($username, $password) {
+function checkPassword($username, $password) 
+{
     global $jxglurl;
     $ch = curl_init($jxglurl . 'default_ysdx.aspx');
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -147,7 +154,8 @@ function checkPassword($username, $password) {
 }
 
 //获取成绩
-function getGrade($username, $password) {
+function getGrade($username, $password) 
+{
     global $jxglurl;
     $ch = curl_init($jxglurl . 'default_ysdx.aspx');
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -217,7 +225,8 @@ function getGrade($username, $password) {
 }
 
 //获取考试安排
-function getExam($username, $password) {
+function getExam($username, $password) 
+{
     global $jxglurl;
     $ch = curl_init($jxglurl . 'default_ysdx.aspx');
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -275,7 +284,8 @@ function getExam($username, $password) {
 }
 
 //获取课表
-function getClass($username, $password, $week) {
+function getClass($username, $password, $week) 
+{
     global $jxglurl;
     $ch = curl_init($jxglurl . 'default_ysdx.aspx');
     curl_setopt($ch, CURLOPT_HEADER, 1);
@@ -361,7 +371,8 @@ function getClass($username, $password, $week) {
 }
 
 //curl get请求
-function curlGet($url,$cookie=false){
+function curlGet($url,$cookie=false)
+{
     $jxglurl = $config['jxglurl'];
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -378,7 +389,8 @@ function curlGet($url,$cookie=false){
 }
 
 //curl POST请求
-function curlPost($url,$data,$cookie=false){
+function curlPost($url,$data,$cookie=false)
+{
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $attr);
     curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0 FirePHP/0.7.4");
@@ -392,5 +404,10 @@ function curlPost($url,$data,$cookie=false){
     $result = curl_exec($ch);
     curl_close($ch);
     return $result;
+}
+
+function getLoginUrl($openid)
+{
+    return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . 'login.php?openid=' . $openid;
 }
 
