@@ -408,6 +408,6 @@ function curlPost($url,$data,$cookie=false)
 
 function getLoginUrl($openid)
 {
-    return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . 'login.php?openid=' . $openid;
+    return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/login.php?openid=' . $openid;
 }
 
