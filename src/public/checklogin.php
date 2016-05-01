@@ -1,6 +1,9 @@
 <?php
 include_once '../function.php';
 include_once '../config/config.php';
+global $config;
+var_dump($config);
+die();
 $openid = $_REQUEST['openid'];
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
