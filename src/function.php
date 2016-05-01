@@ -112,7 +112,9 @@ function unBind($openid)
 //验证学号密码
 function checkPassword($username, $password) 
 {
-    global $jxglurl;
+    global $config;
+    $jxglurl = $config['jxglurl'];
+
     $ch = curl_init($jxglurl . 'default_ysdx.aspx');
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_HEADER, 1);
@@ -156,7 +158,8 @@ function checkPassword($username, $password)
 //获取成绩
 function getGrade($username, $password) 
 {
-    global $jxglurl;
+    global $config;
+    $jxglurl = $config['jxglurl'];
     $ch = curl_init($jxglurl . 'default_ysdx.aspx');
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_HEADER, 1);
@@ -227,7 +230,8 @@ function getGrade($username, $password)
 //获取考试安排
 function getExam($username, $password) 
 {
-    global $jxglurl;
+    global $config;
+    $jxglurl = $config['jxglurl'];
     $ch = curl_init($jxglurl . 'default_ysdx.aspx');
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_HEADER, 1);
@@ -286,7 +290,8 @@ function getExam($username, $password)
 //获取课表
 function getClass($username, $password, $week) 
 {
-    global $jxglurl;
+    global $config;
+    $jxglurl = $config['jxglurl'];
     $ch = curl_init($jxglurl . 'default_ysdx.aspx');
     curl_setopt($ch, CURLOPT_HEADER, 1);
     
