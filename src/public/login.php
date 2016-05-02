@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>绑定教务系统帐号</title>
-<link rel="stylesheet" href="/static/css/jquery.mobile-1.3.1.min.css">
+<link href="//cdn.bootcss.com/jquery-mobile/1.3.1/jquery.mobile.min.css" rel="stylesheet">
 </head>
 <body class="ui-mobile-viewport ui-overlay-c" ryt12199="1" style="zoom: 1;">
 <div data-role="page" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 343px;">
@@ -26,8 +26,8 @@
 <div class="openid" id = <?php echo $_GET['openid'];?>>
 </div>
 
-<script src="/static/js/jquery-1.9.0.min.js"></script>
-<script src="/static/js/jquery.mobile-1.3.1.min.js"></script> 
+<script src="//cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-mobile/1.3.1/jquery.mobile.min.js"></script>
 <script>
 $('#bind-btn').on('click',function(){
 	$.mobile.showPageLoadingMsg(); 
