@@ -19,6 +19,8 @@ RUN rm -fr /etc/nginx/conf.d/*
 COPY docker/etc/nginx/conf.d/ /etc/nginx/conf.d/
 
 RUN echo date.timezone = Asia/Shanghai >> /etc/php.ini
+# php-fpm不清除环境变量 不然无法获取系统环境变量
+RUN echo clear_env = no >> /etc/php-fpm.d/www.conf
 
 RUN rm -fr /var/cache/yum
 RUN yum clean all
