@@ -2,6 +2,7 @@
 
 //error_reporting(0);
 include_once ('../function.php');
+include_once ('../config/config.php');
 
 /**
  * 微信公众平台 PHP SDK 示例文件
@@ -216,6 +217,6 @@ class MyWechat extends Wechat
         
     }
 }
-
-$wechat = new MyWechat('weixin', TRUE);
+global $config;
+$wechat = new MyWechat($config['weixin_token']);
 $wechat->run();
